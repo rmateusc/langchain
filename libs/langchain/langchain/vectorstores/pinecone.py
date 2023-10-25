@@ -226,7 +226,8 @@ class Pinecone(VectorStore):
         docs_and_scores = self.similarity_search_with_score(
             query, k=k, filter=filter, namespace=namespace, **kwargs
         )
-        return [doc for doc, _ in docs_and_scores]
+        return docs_and_scores
+        # return [doc for doc, _ in docs_and_scores]
 
     def _select_relevance_score_fn(self) -> Callable[[float], float]:
         """
